@@ -57,6 +57,7 @@ for i in range(1, 6):
                     restaurants.append(dataclasses.asdict(restaurant))
 
 print(restaurants[0])
+client.index('zomato').update(primary_key='id')
 task = client.index('zomato').add_documents(restaurants)
 sleep(5)
 print(client.get_task(task.task_uid))
